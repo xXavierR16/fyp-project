@@ -4,3 +4,5 @@ joblib==1.2.0
 validators==0.18.2
 numpy==1.23.3
 pandas==1.5.0
+setuptools==59.5.0  # Add setuptools
+wheel==0.37.1      # Add wheel (if needed)
