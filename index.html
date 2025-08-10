@@ -1,0 +1,89 @@
+<!--create a basic webpage-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/17994/17994660.png" type="image/png">
+        <title style="color: white;">Ransomware Detection System</title>
+        
+        <style>
+            body {
+                font-family: 'Comic Sans MS';
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                background-image: url(https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjEwMTYtYy0wMi1rc2g2cWt1Zy5qcGc.jpg);
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+            }
+
+            /*HEADING ANIMATION*/
+            @keyframes fadeIn {
+                from{ opacity: 0; transform: translate3d(-20px);}
+                to{ opacity: 1; transform: translate3d(0);}
+            }
+
+            @keyframes spin {to{transform: rotate(360deg);}}
+
+            h1 {color: white; font-size: 4rem; margin-bottom: 20px; text-align: center; animation: fadeIn 2s ease-out;}
+            .input-box {width: 100%; padding: 10px; font-size: 1.5rem; margin-bottom: 20px; border-radius: 5px; border: 1px solid #ccc;} 
+            input {font-size: 1.5rem; padding: 10px; width: 500px; border: 2px solid #fff; border-radius: 5px; margin-bottom: 20px;}
+            button {padding: 15px 30px; border: none; cursor: pointer; font-size: 1.5rem; border-radius: 5px; width: auto;}
+            button:hover {background-color: #b1f590;}
+            .container {justify-content: center; align-items: center;}
+            .prediction-corner {color: #fff;}
+            .spinner {display: none; width: 20px; height: 20px; border: 3px solid #fff; border-radius: 50%; border-top-color: #fff; animation: spin 1s ease-in-out infinite; margin-left: 10px;}
+            
+        </style>
+
+    </head>
+
+    <body>
+        
+        <div class="container">
+            <h1>Ransomware Detection</h1>
+        </div>
+
+        <form id="predictForm" action="/" method="post" onsubmit="return startProcess(event)">
+            <input type="text" name="url" placeholder="Enter URL" required>
+            <br><br>
+            <button type="submit" id="startBtn" onsubmit="return startProcess()">
+                <span id="btnText">Start</span>
+                <span id="btnSpinner" class="spinner"></span>
+            </button>
+        </form>
+        
+    <!--used when built FLASK WEB APP python-->
+    <div class="prediction-corner">
+        {% if prediction %}
+            <p><strong>Prediction:</strong> {{ prediction }}</p>
+        {% endif %}
+    </div>
+
+    <script>
+        function startProcess(event) {
+            event.preventDefault(); // Stop the form from submitting immediately
+
+            const btn = document.getElementById("startBtn");
+            const spinner = document.getElementById("btnSpinner");
+            const btnText = document.getElementById("btnText");
+
+            spinner.style.display = "inline-block";
+            btnText.textContent = "Processing";
+            btn.disabled = true;
+
+            // Submit the form after a brief delay
+            setTimeout(() => {
+                document.getElementById("predictForm").submit();
+            }, 300);
+        }
+        
+    </script>
+
+    </body>
+
+</html>
