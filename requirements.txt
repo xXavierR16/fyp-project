@@ -4,6 +4,7 @@ Flask==2.2.2
 scikit-learn==1.4.2
 joblib==1.2.0
 validators==0.18.2
-numpy==1.26.4
+numpy<2.0
+#numpy==1.26.4
 pandas==1.5.0
 cython==0.29.28  # Optional: To avoid issues with scikit-learn building
