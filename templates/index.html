@@ -10,7 +10,6 @@
         <style>
             body {
                 font-family: 'Comic Sans MS';
-                color: white
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -76,7 +75,7 @@
         
     <!--used when built FLASK WEB APP python-->
         {% if prediction %}
-            <p><strong>Prediction:</strong> {{ prediction }}</p>
+            <p style="color:white;"><strong>Prediction:</strong> {{ prediction }}</p>
         {% endif %}
 
     <script>
