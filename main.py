@@ -61,7 +61,7 @@ def extract_features(url):
             'file_ext': file_ext,
         }
 
-        # Option 1: 6 numerical features (without file_ext_encoded)
+        # 1: 6 numerical features (without file_ext_encoded)
         numerical_features_6 = [
             features['url_length'],
             features['num_dots'], 
@@ -72,7 +72,7 @@ def extract_features(url):
             features['has_dotcom']
         ]
 
-        # Option 2: 7 features (with file_ext_encoded)
+        # 2: 7 features (with file_ext_encoded)
         # Encode file extension
         file_ext_encoded = 0
         if file_ext_encoder:
@@ -89,12 +89,11 @@ def extract_features(url):
         print(f"6 features: {numerical_features_6}")
         print(f"7 features: {numerical_features_7}")
 
-        # Since error says expecting 7 features, return 7
         return np.array(numerical_features_7)
 
     except Exception as e:
         print(f"Feature extraction error: {str(e)}")
-        # Return default values that match expected feature count (7 features)
+        # Return default values that match expected feature count
         return np.array([0, 0, 0, 0, 0, 0, 0])
 
 @app.route('/', methods=['GET', 'POST'])
