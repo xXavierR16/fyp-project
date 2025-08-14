@@ -3,4 +3,7 @@ About this repo:
   Used Google Colab from data preprocessing to evaluation, download the result as .pkl file and upload here.
 
 Machine Learning and Deep Learning chosen:
-  Random Forest, SVM, CNN
+  Random Forest, LinearSVC, CNN.
+
+  
+The ML changed from SVM to LinearSVC, as LinearSVC provide a linear implementation of SVM optimized for speed and large datasets.
