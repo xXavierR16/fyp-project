@@ -54,7 +54,7 @@
                 <span class="info-icon" onclick="togglePopup()">ℹ️info</span>
             </h1>
         </div>
-
+<!--create a popup info-->
         <div id="infoPopup" class="popup">
             <div class="popup-content">
                 <span class="close-btn" onclick="togglePopup()">&times;</span>
@@ -73,12 +73,13 @@
             </button>
         </form>
         
-    <!--used when built FLASK WEB APP python-->
+<!--used when built FLASK WEB APP python-->
         {% if prediction %}
             <p style="color:white;"><strong>Prediction:</strong> {{ prediction }}</p>
         {% endif %}
 
     <script>
+        // show spinner and change text to "processing"
         function startProcess(event) {
             event.preventDefault(); // Stop the form from submitting immediately
 
@@ -97,6 +98,7 @@
         }
     </script>
     <script>
+        // popup info box
         function togglePopup() {
             const popup = document.getElementById("infoPopup");
             popup.style.display = popup.style.display === "block" ? "none" : "block";
